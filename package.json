@@ -14,7 +14,7 @@
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "backup": "git add . && git commit -m \"[Cursor] Backup commit %DATE:~10,4%-%DATE:~4,2%-%DATE:~7,2%_%TIME:~0,2%-%TIME:~3,2%-%TIME:~6,2%\" && git push origin main"
+    "backup": "git add . && git commit -m \"[Cursor] Backup commit\" && git push origin main"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",
