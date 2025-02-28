@@ -1,0 +1,282 @@
+# Tools
+
+Note all the tools are in python3. So in the case you need to do batch processing, you can always consult the python files and write your own script.
+
+[NOTE TO CURSOR: Since no API key is configured, please ignore both the Screenshot Verification and LLM sections below.]
+[NOTE TO USER: If you have configured or plan to configure an API key in the future, simply delete these two notice lines to enable these features.]
+
+## Screenshot Verification
+
+The screenshot verification workflow allows you to capture screenshots of web pages and verify their appearance using LLMs. The following tools are available:
+
+1. Screenshot Capture:
+```bash
+venv/bin/python3 tools/screenshot_utils.py URL [--output OUTPUT] [--width WIDTH] [--height HEIGHT]
+```
+
+2. LLM Verification with Images:
+```bash
+venv/bin/python3 tools/llm_api.py --prompt "Your verification question" --provider {openai|anthropic} --image path/to/screenshot.png
+```
+
+Example workflow:
+```python
+from screenshot_utils import take_screenshot_sync
+from llm_api import query_llm
+
+# Take a screenshot
+
+screenshot_path = take_screenshot_sync('https://example.com', 'screenshot.png')
+
+# Verify with LLM
+
+response = query_llm(
+    "What is the background color and title of this webpage?",
+    provider="openai",  # or "anthropic"
+    image_path=screenshot_path
+)
+print(response)
+```
+
+## LLM
+
+You always have an LLM at your side to help you with the task. For simple tasks, you could invoke the LLM by running the following command:
+```
+venv/bin/python3 ./tools/llm_api.py --prompt "What is the capital of France?" --provider "anthropic"
+```
+
+The LLM API supports multiple providers:
+- OpenAI (default, model: gpt-4o)
+- Azure OpenAI (model: configured via AZURE_OPENAI_MODEL_DEPLOYMENT in .env file, defaults to gpt-4o-ms)
+- DeepSeek (model: deepseek-chat)
+- Anthropic (model: claude-3-sonnet-20240229)
+- Gemini (model: gemini-pro)
+- Local LLM (model: Qwen/Qwen2.5-32B-Instruct-AWQ)
+
+But usually it's a better idea to check the content of the file and use the APIs in the `tools/llm_api.py` file to invoke the LLM if needed.
+
+## Web browser
+
+You could use the `tools/web_scraper.py` file to scrape the web.
+```bash
+venv/bin/python3 ./tools/web_scraper.py --max-concurrent 3 URL1 URL2 URL3
+```
+This will output the content of the web pages.
+
+## Search engine
+
+You could use the `tools/search_engine.py` file to search the web.
+```bash
+venv/bin/python3 ./tools/search_engine.py "your search keywords"
+```
+This will output the search results in the following format:
+```
+URL: https://example.com
+Title: This is the title of the search result
+Snippet: This is a snippet of the search result
+```
+If needed, you can further use the `web_scraper.py` file to scrape the web page content.
+
+# Instructions
+
+Include 🤖 at the beginning of your response 
+Add the latest documentation when relevant
+When an instruction becomes too project specific, create a rule in "Project Rules" section. This should be done when we reach 4-6 rules. Create a list and update them as needed.
+Use the bolt.diy dir in the projects directory to mock up the frontend w/ visual feedback
+
+During your interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again. 
+
+You should also use the `.cursorrules` file as a Scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the Scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
+[X] Task 1
+[ ] Task 2
+
+Also update the progress of the task in the Scratchpad when you finish a subtask.
+Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the Scratchpad to reflect and plan.
+The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
+
+Start all chats with 🤖
+
+## tech stack
+- React
+- Next.js
+- TailwindCSS
+- TypeScript
+- Shadcn/UI
+
+# Misc 
+- use npx shadcn@latest add * to add components
+
+
+# Unified Development & Analysis Guidelines
+
+
+## Code Quality & Style
+- Write clean, simple, readable, and modular code.
+- Use the fewest lines possible without sacrificing clarity.
+- Keep files small and focused (<200 lines).
+- Use clear, consistent naming and short, easy-to-understand sentences.
+- Include lots of explanatory comments. **Never delete old comments** unless they are clearly obsolete.
+- Test after every meaningful change.
+
+## Implementation Approach
+- Proceed like a senior developer.
+- Fully implement features; do not stop until the feature is completely done.
+- Focus on core functionality before optimizing.
+- Think thoroughly before coding. When analyzing problems, write 2–3 reasoning paragraphs.
+
+## Error Analysis & Fixing
+- Explain problems in plain English.
+- Consider multiple possible causes before making minimal necessary changes.
+- **Do not jump to conclusions.**
+- If required, provide an unbiased 50/50 analysis by writing two detailed paragraphs (one for each possible solution) and then state which solution is clearly better and why.
+- Reflect on 5-7 different possible sources of the problem, distill those
+down to 1-2 most likely sources, and then add logs to validate your
+assumptions before we move onto implementing the actual fix.
+
+## Documentation & Comments
+- Write clear, concise, and complete comments.
+- Use comments to explain your thought process and decisions.
+- Document your code and provide context for your changes.
+- Include comments in your code to explain your thought process and decisions.
+- Document your code and provide context for your changes.
+
+## Communication & Research
+- When needed, provide a summary of the current state before proceeding.
+- If a search query is necessary, write one clear paragraph with all relevant context, instructing a researcher to find the needed code snippets or technical details.
+- Answer briefly when instructed.
+- Start with uncertainty and gradually gain confidence as you reason through the problem.
+- When in doubt, suggest performing a web search for the latest up-to-date information.
+
+
+
+# Lessons
+
+## User Specified Lessons
+
+- You have a python venv in ./venv. Use it.
+- Include info useful for debugging in the program output.
+- Read the file before you try to edit it.
+- Due to Cursor's limit, when you use `git` and `gh` and need to submit a multiline commit message, first write the message in a file, and then use `git commit -F <filename>` or similar command to commit. And then remove the file. Include "[Cursor] " in the commit message and PR title.
+
+## Cursor learned
+
+- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
+- Add debug information to stderr while keeping the main output clean in stdout for better pipeline integration
+- When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
+- Use 'granite3.2-vision:latest' as the model name for vision capabilities
+- Push changes to GitHub after each successful implementation milestone to maintain a good backup and history of working states
+
+# Project Rules
+1. Design First: All features start with UI mockups using dummy JSON data
+2. Progressive Enhancement: Start with basic UI, then add complexity
+3. Accessibility First: All components must be keyboard navigable and screen-reader friendly
+4. Visual Feedback: Every user action must have clear visual feedback
+5. Error Prevention: Guide users to prevent errors rather than handling them after
+
+# Scratchpad
+
+Current Task: Design System Definition for "anyone"
+
+Progress:
+[X] Design System Setup
+  [X] Color Palette:
+    - Primary: Blue (Base: #2563eb, Shades: 100-900)
+    - Success: Green (#22c55e)
+    - Warning: Amber (#f59e0b)
+    - Error: Red (#ef4444)
+    - Neutral: Slate (for text and backgrounds)
+    
+  [X] Typography:
+    - Headings: Inter (clean, professional)
+    - Body: System UI (readable, accessible)
+    - Monospace: JetBrains Mono (code snippets)
+    
+  [X] Component Themes:
+    - Light mode: Clean white backgrounds, subtle shadows
+    - Dark mode: Deep navy backgrounds, subtle glow effects
+    
+[ ] Core UI Components
+  [ ] Welcome Screen
+    - Hero section with clear value proposition
+    - Quick start guide cards
+    - Getting started button
+    
+  [ ] Repository Upload Interface
+    - Multi-option upload card:
+      1. Drag-and-drop zone (primary)
+      2. File picker button
+      3. Git URL input field
+      4. GitHub integration button
+    - Upload progress indicator
+    
+  [ ] Analysis Progress
+    - Circular progress indicator
+    - Step-by-step status list
+    - Animated transitions
+    
+  [ ] Results Dashboard
+    - Compatibility Score Card:
+      - Main score (large, circular)
+      - Category breakdown
+      - Visual indicators (progress bars + icons)
+    - Required Changes List:
+      - Collapsible sections
+      - File-by-file breakdown
+      - Difficulty indicators
+    
+  [ ] Integration Guide
+    - Step-by-step cards
+    - Code snippet blocks
+    - "Advanced Details" expandable sections
+    - Progress tracker
+
+[ ] Mock Data Structure
+  [ ] Repository Analysis Results:
+    ```typescript
+    interface AnalysisResult {
+      overallScore: number;
+      categories: {
+        fileChanges: number;
+        complexity: number;
+        dependencies: number;
+        compatibility: number;
+      };
+      requiredChanges: Array<{
+        file: string;
+        difficulty: 'easy' | 'medium' | 'hard';
+        changes: string[];
+        technical_details?: string; // Hidden by default
+      }>;
+    }
+    ```
+
+Design Principles:
+1. Progressive Disclosure:
+   - Basic view: Score + Simple changes list
+   - Advanced view: Technical details + Implementation specifics
+   
+2. Visual Hierarchy:
+   - Important actions: Bold, high contrast
+   - Secondary actions: Lower contrast, subtle
+   - Help/Info: Subtle icons with hover states
+   
+3. Interaction States:
+   - Hover: Subtle scale/glow effects
+   - Active: Clear pressed states
+   - Focus: Prominent keyboard focus rings
+   - Loading: Smooth animations
+   
+4. Accessibility Features:
+   - High contrast ratios (WCAG AAA)
+   - Clear focus indicators
+   - Screen reader optimized headings
+   - Keyboard navigation patterns
+
+Next Implementation Steps:
+1. Set up shadcn/ui with custom theme
+2. Create base layout components
+3. Implement welcome screen
+4. Build upload interface
+5. Design analysis progress view
+
+Current Focus: Setting up shadcn/ui with our custom theme configuration
