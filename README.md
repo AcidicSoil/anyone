@@ -105,3 +105,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/AcidicSoil/anyone?labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit%20Reviews)
