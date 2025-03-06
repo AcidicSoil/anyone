@@ -1,0 +1,12 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#f0f0f0" />
+  <text x="200" y="80" font-family="Arial" font-size="20" text-anchor="middle">Guide Placeholder</text>
+  <rect x="100" y="100" width="200" height="80" stroke="#333" fill="none" stroke-width="2" />
+  <line x1="100" y1="120" x2="300" y2="120" stroke="#333" stroke-width="1" />
+  <line x1="100" y1="140" x2="300" y2="140" stroke="#333" stroke-width="1" />
+  <line x1="100" y1="160" x2="300" y2="160" stroke="#333" stroke-width="1" />
+  <text x="110" y="115" font-family="Arial" font-size="12">Step 1: Install</text>
+  <text x="110" y="135" font-family="Arial" font-size="12">Step 2: Configure</text>
+  <text x="110" y="155" font-family="Arial" font-size="12">Step 3: Implement</text>
+  <text x="110" y="175" font-family="Arial" font-size="12">Step 4: Test</text>
+</svg> 

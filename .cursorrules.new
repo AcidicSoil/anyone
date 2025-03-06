@@ -1,4 +1,4 @@
-# Tools
+ # Tools
 
 Note all the tools are in python3. So in the case you need to do batch processing, you can always consult the python files and write your own script.
 
@@ -106,41 +106,9 @@ Start all chats with 🤖
 # Misc 
 - use npx shadcn@latest add * to add components
 
-# Next.js & React Best Practices
-
-## Component Structure
-- Use a clear component hierarchy with proper composition
-- Keep components small and focused on a single responsibility
-- Use named exports for components (export function Component() instead of export default)
-- Organize components by feature rather than by type
-- Use React Server Components (RSC) for static content and Client Components only when needed
-
-## State Management
-- Use React hooks (useState, useReducer) for local component state
-- Consider Zustand or Context API for global state management
-- Avoid prop drilling by using composition or context
-- Use React Query for server state management and data fetching
-
-## Performance Optimization
-- Implement proper memoization with useMemo and useCallback
-- Use the Next.js Image component for optimized images
-- Implement code splitting with dynamic imports
-- Use the React DevTools Profiler to identify performance bottlenecks
-
-## TypeScript Best Practices
-- Define explicit types for props, state, and function parameters/returns
-- Use interface for public APIs and type for complex types or unions
-- Leverage TypeScript's utility types (Partial, Pick, Omit, etc.)
-- Avoid using 'any' type; use 'unknown' when type is truly unknown
-- Use discriminated unions for state management
-
-## Shadcn/UI Implementation
-- Customize the theme in a centralized location
-- Extend components using the cn utility for conditional classes
-- Follow the component composition pattern for complex UI elements
-- Use the form hooks for form validation and submission
 
 # Unified Development & Analysis Guidelines
+
 
 ## Code Quality & Style
 - Write clean, simple, readable, and modular code.
@@ -179,6 +147,8 @@ assumptions before we move onto implementing the actual fix.
 - Start with uncertainty and gradually gain confidence as you reason through the problem.
 - When in doubt, suggest performing a web search for the latest up-to-date information.
 
+
+
 # Lessons
 
 ## User Specified Lessons
@@ -195,9 +165,6 @@ assumptions before we move onto implementing the actual fix.
 - When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
 - Use 'granite3.2-vision:latest' as the model name for vision capabilities
 - Push changes to GitHub after each successful implementation milestone to maintain a good backup and history of working states
-- When fixing import errors in Next.js projects, check for both path aliases (@/ vs ~/) and missing component files
-- Create placeholder SVG files for missing images to prevent 404 errors during development
-- Use the `asChild` prop with Shadcn UI Button components when wrapping them with Next.js Link components
 
 # Project Rules
 1. Design First: All features start with UI mockups using dummy JSON data
@@ -206,29 +173,6 @@ assumptions before we move onto implementing the actual fix.
 4. Visual Feedback: Every user action must have clear visual feedback
 5. Error Prevention: Guide users to prevent errors rather than handling them after
 6. Regular Backups: Push to GitHub after every major change using best practices (descriptive commits, proper branching)
-7. Component Isolation: Each UI component should be self-contained with its own styles and logic
-8. Type Safety: Use TypeScript interfaces for all props and state to ensure type safety
-
-# Git Workflow Best Practices
-
-## Commit Guidelines
-- Write clear, concise commit messages that explain the "why" not just the "what"
-- Use conventional commits format: type(scope): message (e.g., feat(auth): add login functionality)
-- Keep commits focused on a single logical change
-- Commit early and often to maintain a detailed history
-
-## Branching Strategy
-- Use feature branches for new features (feature/feature-name)
-- Use bugfix branches for bug fixes (bugfix/issue-description)
-- Use release branches for preparing releases (release/version)
-- Always merge from develop to feature branches before creating PRs
-
-## Pull Request Process
-- Create descriptive PR titles and descriptions
-- Reference related issues in PR descriptions
-- Keep PRs small and focused on a single feature or fix
-- Request reviews from appropriate team members
-- Address all review comments before merging
 
 # Scratchpad
 
@@ -261,17 +205,8 @@ Next Steps (only after minimal setup works):
    - [X] Create missing UI components (badge, checkbox, input, toast)
 4. [X] Add placeholder images for documentation page
 
-Current Focus: GitHub Integration and Backup
-
-Steps:
-1. [ ] Initialize Git repository (if not already done)
-2. [ ] Create GitHub repository
-3. [ ] Set up initial commit with all current files
-4. [ ] Push to GitHub
-5. [ ] Set up branch protection rules
-
 Design Guidelines:
 - Use our established color palette
 - Maintain consistent spacing
 - Ensure responsive layout
-- Follow accessibility guidelines 
+- Follow accessibility guidelines

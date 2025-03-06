@@ -1,5 +1,17 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+/**
+ * Header Component
+ * 
+ * Main application header with:
+ * - Logo
+ * - Navigation
+ * - Theme toggle
+ * 
+ * File path: src/components/layout/Header.tsx
+ */
+
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ModeToggle } from '@/components/layout/ModeToggle';
 
 export function Header() {
   return (
@@ -10,19 +22,27 @@ export function Header() {
             <span className="text-2xl font-bold text-primary">anyone</span>
           </Link>
           <nav className="hidden md:flex gap-6">
-            <Link href="/docs" className="text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Docs
+            <Link href="/" className="text-sm font-medium">
+              Home
             </Link>
-            <Link href="/examples" className="text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Examples
+            <Link href="/docs" className="text-sm font-medium">
+              Documentation
+            </Link>
+            <Link href="/about" className="text-sm font-medium">
+              About
+            </Link>
+            <Link href="/contact" className="text-sm font-medium">
+              Contact
             </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm">
-            Sign In
+          <ModeToggle />
+          <Button size="sm" asChild>
+            <Link href="/dashboard">
+              Get Started
+            </Link>
           </Button>
-          <Button size="sm">Get Started</Button>
         </div>
       </div>
     </header>

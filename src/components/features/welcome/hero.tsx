@@ -8,6 +8,7 @@
 import { Button } from "@/components/ui/button"
 import { motion, useMotionValue, useTransform, animate } from "framer-motion"
 import { useEffect } from "react"
+import Link from "next/link"
 
 export function Hero() {
   const mouseX = useMotionValue(0)
@@ -98,12 +99,15 @@ export function Hero() {
               <Button 
                 size="lg" 
                 className="bg-blue-600 hover:bg-blue-700 text-white relative overflow-hidden group"
+                asChild
               >
-                <motion.span
-                  className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"
-                  style={{ translateY: "100%" }}
-                />
-                <span className="relative z-10">Get Started</span>
+                <Link href="/dashboard">
+                  <motion.span
+                    className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"
+                    style={{ translateY: "100%" }}
+                  />
+                  <span className="relative z-10">Get Started</span>
+                </Link>
               </Button>
             </motion.div>
             <motion.div
@@ -115,12 +119,15 @@ export function Hero() {
                 size="lg" 
                 variant="outline"
                 className="border-blue-500/50 text-blue-100 hover:bg-blue-500/10 relative overflow-hidden group"
+                asChild
               >
-                <motion.span
-                  className="absolute inset-0 bg-blue-500/5 translate-y-full group-hover:translate-y-0 transition-transform"
-                  style={{ translateY: "100%" }}
-                />
-                <span className="relative z-10">Learn More</span>
+                <Link href="/about">
+                  <motion.span
+                    className="absolute inset-0 bg-blue-500/5 translate-y-full group-hover:translate-y-0 transition-transform"
+                    style={{ translateY: "100%" }}
+                  />
+                  <span className="relative z-10">Learn More</span>
+                </Link>
               </Button>
             </motion.div>
           </motion.div>

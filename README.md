@@ -1,6 +1,6 @@
-# anyone
+# anyone - Repository Analysis & Ollama Integration Platform
 
-Making repository analysis and Ollama integration accessible to everyone.
+Making repository analysis and Ollama integration accessible to everyone, regardless of experience level.
 
 ## Overview
 
@@ -8,46 +8,70 @@ anyone is a user-friendly web application designed to simplify the process of an
 
 ## Features
 
-- 🔄 Multi-method repository upload
-- 📊 Real-time analysis progress tracking
-- 🎯 Comprehensive compatibility scoring
-- 🚀 Step-by-step integration guide
-- 🎨 Beautiful, accessible UI
-- 🌙 Dark mode support
+- **Repository Analysis**
+  - Multi-method repository upload (drag-and-drop, URL, GitHub)
+  - Real-time analysis progress tracking
+  - Comprehensive compatibility scoring
+
+- **Results Dashboard**
+  - Overall compatibility score
+  - Category-based analysis breakdown
+  - Required changes list with difficulty indicators
+
+- **Integration Guide**
+  - Step-by-step implementation instructions
+  - Interactive progress tracking
+  - Code snippet examples
 
 ## Tech Stack
 
-- Next.js 14+
-- TypeScript
-- TailwindCSS
-- Shadcn/UI
+- **Frontend**
+  - Next.js 14+
+  - TypeScript
+  - TailwindCSS
+  - Shadcn/UI
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18.17 or later
-- npm or pnpm
+- Node.js 18+
+- pnpm 9+
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/anyone.git
-cd anyone
-```
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/anyone.git
+   cd anyone
+   ```
 
-2. Install dependencies:
-```bash
-pnpm install
-```
+2. Install dependencies
+   ```bash
+   pnpm install
+   ```
 
-3. Start the development server:
-```bash
-pnpm dev
-```
+3. Start the development server
+   ```bash
+   pnpm dev
+   ```
 
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js app router
+├── components/           # React components
+│   ├── features/         # Feature-specific components
+│   ├── layout/           # Layout components
+│   └── ui/               # UI components (shadcn/ui)
+├── lib/                  # Utility functions and services
+│   ├── services/         # Service functions
+│   └── types/            # TypeScript type definitions
+└── styles/               # Global styles
+```
 
 ## Development
 
@@ -76,8 +100,8 @@ Our design system emphasizes accessibility and user-friendliness. Key components
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.

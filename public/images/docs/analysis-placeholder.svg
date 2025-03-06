@@ -1,0 +1,7 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#f0f0f0" />
+  <text x="200" y="100" font-family="Arial" font-size="20" text-anchor="middle">Analysis Placeholder</text>
+  <rect x="100" y="120" width="200" height="20" stroke="#333" fill="none" stroke-width="2" />
+  <rect x="100" y="120" width="120" height="20" fill="#4CAF50" />
+  <text x="200" y="135" font-family="Arial" font-size="14" text-anchor="middle" fill="#333">60%</text>
+</svg> 

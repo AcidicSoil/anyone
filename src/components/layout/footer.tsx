@@ -1,74 +1,83 @@
-import Link from "next/link";
+/**
+ * Footer Component
+ * 
+ * Main application footer with:
+ * - Copyright information
+ * - Links to important pages
+ * - Social media links
+ * 
+ * File path: src/components/layout/Footer.tsx
+ */
+
+import Link from 'next/link';
+import { Github, Twitter } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
-      <div className="container py-8 md:py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold">Product</h3>
-            <Link href="/features" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Features
-            </Link>
-            <Link href="/pricing" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Pricing
-            </Link>
-            <Link href="/docs" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Documentation
-            </Link>
+    <footer className="border-t">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="font-bold text-lg mb-4">anyone</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Making repository analysis and Ollama integration accessible to everyone, 
+              regardless of experience level.
+            </p>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold">Resources</h3>
-            <Link href="/guides" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Guides
-            </Link>
-            <Link href="/examples" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Examples
-            </Link>
-            <Link href="/blog" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Blog
-            </Link>
+          
+          <div>
+            <h3 className="font-bold text-lg mb-4">Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/docs" className="text-sm hover:underline">
+                  Documentation
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm hover:underline">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-sm hover:underline">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-sm hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm hover:underline">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold">Company</h3>
-            <Link href="/about" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Contact
-            </Link>
-            <Link href="/privacy" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Privacy
-            </Link>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h3 className="text-lg font-semibold">Legal</h3>
-            <Link href="/terms" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Terms
-            </Link>
-            <Link href="/privacy" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Privacy
-            </Link>
-            <Link href="/cookies" className="text-sm text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Cookies
-            </Link>
+          
+          <div>
+            <h3 className="font-bold text-lg mb-4">Connect</h3>
+            <div className="flex space-x-4">
+              <Link href="https://github.com" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-300">
+                <Github size={20} />
+                <span className="sr-only">GitHub</span>
+              </Link>
+              <Link href="https://twitter.com" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-300">
+                <Twitter size={20} />
+                <span className="sr-only">Twitter</span>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-neutral-200 pt-8 dark:border-neutral-800 md:flex-row">
-          <p className="text-sm text-neutral-500 dark:text-neutral-400">
-            © {new Date().getFullYear()} anyone. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="https://twitter.com" className="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Twitter
-            </Link>
-            <Link href="https://github.com" className="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              GitHub
-            </Link>
-            <Link href="https://discord.com" className="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50">
-              Discord
-            </Link>
-          </div>
+        
+        <div className="mt-8 pt-8 border-t text-center text-sm text-gray-500">
+          <p>&copy; {new Date().getFullYear()} anyone. All rights reserved.</p>
         </div>
       </div>
     </footer>
